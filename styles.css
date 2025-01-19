@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+    font-family: Arial, sans-serif;
+  }
+  
+  #container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .message {
+    position: absolute;
+    z-index: 10;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .heart {
+    position: absolute;
+    width: 30px; /* Tamaño aumentado */
+    height: 30px; /* Tamaño aumentado */
+    background-color: #FF1493; /* Fucsia vibrante */
+    transform: rotate(45deg);
+    opacity: 0.9;
+    top: 100vh; /* Los corazones comienzan desde el fondo de la pantalla */
+    animation: float 5s linear infinite, sway 2s ease-in-out infinite;
+  }
+  
+  .heart:before,
+  .heart:after {
+    content: '';
+    position: absolute;
+    width: 30px; /* Tamaño aumentado */
+    height: 30px; /* Tamaño aumentado */
+    background-color: #FF1493; /* Fucsia vibrante */
+    border-radius: 50%;
+  }
+  
+  .heart:before {
+    top: -15px;
+    left: 0;
+  }
+  
+  .heart:after {
+    left: -15px;
+    top: 0;
+  }
+  
+  /* Animación de flotación hacia arriba */
+  @keyframes float {
+    0% {
+      top: 100vh; /* Comienza desde la parte inferior */
+      opacity: 1;
+    }
+    100% {
+      top: -10vh; /* Suben hasta la parte superior */
+      opacity: 0;
+    }
+  }
+  
+  /* Animación de oscilación de lado a lado */
+  @keyframes sway {
+    0%, 100% {
+      transform: translateX(0); /* Sin movimiento horizontal al principio y al final */
+    }
+    50% {
+      transform: translateX(30px); /* Se mueven ligeramente hacia un lado */
+    }
+  }
+  
+  
